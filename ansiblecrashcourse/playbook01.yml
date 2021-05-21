@@ -1,0 +1,14 @@
+---
+- name: create a file
+  connection: local
+  hosts: localhost
+
+  tasks:
+          # python3 copy.py --dest ansible-made-thisfile.txt --content "bla bla bla..."
+          - name: Tasks are references to python code that is already written
+            copy:
+                    dest: ansible-made-this-file.txt
+                    content: "With ansible you can get away with not knowing
+                              any python. However, you can do much more if you
+                              DO know python"
+

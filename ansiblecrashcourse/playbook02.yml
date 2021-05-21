@@ -1,0 +1,25 @@
+---
+- name: create a file
+  connection: local
+  hosts: localhost
+
+  # to search for available tasks, run
+  # ansible-doc -l
+  #
+  vars:
+          mycontent: "With ansible you can get away with not knowing
+                              any python. However, you can do much more if you
+                              DO know python"
+
+
+  tasks:
+          # python3 copy.py --dest ansible-made-thisfile.txt --content "bla bla bla..."
+          - name: Tasks are references to python code that is already written
+            copy:
+                    dest: ansible-made-this-file.txt
+                    content: "{{ mycontent.upper() }}" # this is a str.upper() is
+                                                       # a python method
+          - name: Create a directory if it does not exist
+            file:
+              path: ~/some_directory
+              state: directory    # change this to "absent" to remove the directory
