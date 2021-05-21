@@ -4,9 +4,15 @@
 
 API = "https://api.nasa.gov/planetary/apod?api_key="
 
+# standard library imports
+
+# 3rd party imports
 # python3 -m pip install requests
 import requests
 
+# classes
+
+# functions
 def getkey():
     """Pull the NASA API Key"""
     with open("/home/student/.ssh/nasa_key") as keyfile:
@@ -25,6 +31,7 @@ def main():
     with open(f"/home/student/static/{imgurl.split('/')[-1]}", 'wb') as handler:
         handler.write(imgdata)
 
+# call main if called from CLI
 if __name__ == "__main__":
     main()
 
